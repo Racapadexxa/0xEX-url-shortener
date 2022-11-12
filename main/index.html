@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="/main/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <div>
+            <h2>0xEX URL shortener</h2>
+            <iframe name="noredirect" style="display: none;"></iframe>
+
+            <form method='post' action="/shortener/" id="form" target="noredirect">
+                <input type="text" class="originalLink" placeholder="Link ..." name="long_url">
+                <h3 id="xyz" style="color: rgb(236, 236, 236);"></h3>
+                <a href="" id="redir"><h3  id="link" style="color:#A8E890;"></h3></a>
+                <input type="submit" value="Shorten" class="submitButton" onclick="StartReq()">
+            </form>
+        </div>
+        <img src="/main/0xex.png">
+        <script>
+        function StartReq(){
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "http://192.168.1.69:5555/shortener"); 
+            xhr.onload = function(event){
+                let response = JSON.parse(event.target.response);
+                if(response['link'] != undefined) {
+                    console.log(response);
+                    document.getElementById("xyz").innerHTML = "Your link:";
+                    document.getElementById("link").innerHTML = response['link'];
+                    var link = 
+                    document.getElementById("redir").setAttribute("href", response['link']);
+                }
+            }; 
+
+            var formData = new FormData(document.getElementById("form")); 
+            xhr.send(formData);
+        }
+        </script>
+    </body>
+</html>
