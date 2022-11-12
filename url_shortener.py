@@ -7,7 +7,7 @@ import random
 import uvicorn
 
 app = FastAPI(docs_url=None, redoc_url=None)
-app.mount("/main", StaticFiles(directory=r"C:\Users\Administrator\Desktop\url-shortener\main"))
+app.mount("/main", StaticFiles(directory=r"YOURDIRECTORY\main"))
 
 links = {}
 
@@ -23,7 +23,7 @@ def mk_string():
 
 @app.get('/')
 async def main():
-    return FileResponse('Desktop/url-shortener/main/index.html')
+    return FileResponse('YOURDIRECTORY/main/index.html')
 
 @app.get("/link/{hash}")
 async def main(hash : str | None = None):
@@ -39,7 +39,7 @@ async def mk_link(long_url : str = Form()):
         links[r_domain] = long_url
         return {
             'valid': 0,
-            'link' : 'http://192.168.1.69:5555/link/' + r_domain
+            'link' : 'http://YOURIP:YOURPORT/link/' + r_domain
         }
     elif validators.url(long_url)== False:
         return {
@@ -49,4 +49,4 @@ async def mk_link(long_url : str = Form()):
     
     
     
-uvicorn.run(app,host="192.168.1.69",port=5555)
+uvicorn.run(app,host=YOURIP,port=YOURPORT)
