@@ -7,7 +7,7 @@
 - ##### **Javascript**
 
 
-```To make it work you have to replace the string "192.168.1.69:5555" to your local Ip and port```
+```To make it work you have to replace the string "YOURIP:YOURPORT" to your local Ip and port```
 
 ![](https://img.shields.io/badge/github-blue?style=for-the-badge) ![](https://img.shields.io/badge/API-yellow?style=for-the-badge)
 
