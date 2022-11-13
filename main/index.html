@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <link href="/main/style.css" rel="stylesheet">
     </head>
     <body>
@@ -10,7 +11,7 @@
 
             <form method='post' action="/shortener/" id="form" target="noredirect">
                 <input type="text" class="originalLink" placeholder="Link ..." name="long_url">
-                <h3 id="your_url" style="color: rgb(236, 236, 236);"></h3>
+                <h3 id="xyz" style="color: rgb(236, 236, 236);"></h3>
                 <a href="" id="redir"><h3  id="link" style="color:#A8E890;"></h3></a>
                 <input type="submit" value="Shorten" class="submitButton" onclick="StartReq()">
             </form>
@@ -24,7 +25,7 @@
                 let response = JSON.parse(event.target.response);
                 if(response['link'] != undefined) {
                     console.log(response);
-                    document.getElementById("your_url").innerHTML = "Your link:";
+                    document.getElementById("xyz").innerHTML = "Your link:";
                     document.getElementById("link").innerHTML = response['link'];
                     var link = 
                     document.getElementById("redir").setAttribute("href", response['link']);
