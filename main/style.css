@@ -5,10 +5,12 @@
     padding: 0px;
     box-sizing: border-box;
     font-family: 'Poppins';
+    overflow-x: hidden;
 }
 
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
@@ -70,6 +72,7 @@ h2 {
     color: rgb(236, 236, 236);
     font-size: 1.5em;
     letter-spacing: 0.2em;
+    text-align:center
 }
 
 h3 {
@@ -84,7 +87,7 @@ a {
 }
 
 img {
-    position: absolute;
+    position: fixed;
     right: 0px;
     bottom: 0px;
     transform: scaleX(-1);
